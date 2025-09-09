@@ -5,6 +5,11 @@ const UserAge=()=>{
     return "My age is 25";
 }
 
-module.exports={
-    UserName,UserAge
+const myDate=()=>{
+    return Date();
 }
+
+const myCity=()=>{
+    return "I am from Bhopal";
+}
+module.exports={UserName,UserAge,myDate,myCity}
