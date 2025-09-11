@@ -1,6 +1,6 @@
 const fs=require("fs");
 
-fs.writeFile("doc4.txt","we learn reactjs",(err)=>{
-    if(err) throw err;
-    console.log("file created!!!");
+fs.unlink("doc4.txt",(err)=>{
+    if(err)throw err;
+    console.log("file deleted");
 })
