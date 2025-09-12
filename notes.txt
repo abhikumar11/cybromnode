@@ -1,3 +1,8 @@
 path module
 path.basename()
 returns the last portion of a path similar to the unix basename command;
+
+keywords
+in node.js these keywords are special variable available in commonjs module that provide the directory name and file name of the current module.
+__dirname ->current directory name
+__filename ->current filename
