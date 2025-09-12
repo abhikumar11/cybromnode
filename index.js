@@ -19,3 +19,11 @@ const myext2=path.extname("index.html");
 console.log(myext2);
 const myext3=path.extname("user.js");
 console.log(myext3);
+
+console.log(path.resolve("/users","docs","doc4.txt"));
+console.log(path.resolve("/users","/docs","doc4.txt"));
+console.log(path.resolve(__dirname,"config","app.json"));
+
+const pathInfo=path.parse("/user/images/gallery/index.html");
+console.log(pathInfo);
+console.log(pathInfo.base);

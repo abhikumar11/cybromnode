@@ -15,3 +15,6 @@ returns the extension of a path, from the last occurance of the .(period) charac
 
 path.resolve()
 resolves a sequence of paths or path segments into an absolute path,processing from right to left until an absolute path is considered
+
+path.parse()
+returns an object whose properties prepresent significant elements of the path 
