@@ -6,3 +6,8 @@ keywords
 in node.js these keywords are special variable available in commonjs module that provide the directory name and file name of the current module.
 __dirname ->current directory name
 __filename ->current filename
+
+path.join(__dirname,filename) -> this method create relative path with the given file
+
+path.extname()
+returns the extension of a path, from the last occurance of the .(period) character to the end of the string
