@@ -1,6 +1,5 @@
-const fs=require("fs");
-
-fs.rename("doc4.txt","doc3.txt",(err)=>{
-    if(err)throw err;
-    console.log("file renamed");
-})
+const path=require("path");
+const bsname=path.basename("/users/document/index.js");
+console.log(bsname);
+const filename=path.basename("/users/document/index.js",".js");
+console.log(filename);
