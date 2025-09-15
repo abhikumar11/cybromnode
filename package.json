@@ -1,5 +1,24 @@
 {
+  "name": "cybromnode",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/abhikumar11/cybromnode#readme",
+  "bugs": {
+    "url": "https://github.com/abhikumar11/cybromnode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhikumar11/cybromnode.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "uppercase": "^2.0.0-beta.23"
   }
