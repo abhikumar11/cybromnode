@@ -2,12 +2,12 @@ const homePage = (req, res) => {
     res.render("home")
 };
 const aboutPage = (req, res) => {
-     res.send("<h1>Welcome to about page</h1>");
+     res.render("about");
 };
 const subjectPage = (req, res) => {
-     res.send("<h1>Welcome to subject page</h1>");
+     res.render("subject");
 };
 const salaryPage = (req, res) => {
-     res.send("<h1>Welcome to salary page</h1>");
+     res.render("salary");
 };
 module.exports = { homePage, aboutPage, subjectPage, salaryPage };
