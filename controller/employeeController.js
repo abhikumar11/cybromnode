@@ -4,7 +4,13 @@ const homePage = (req, res) => {
 const aboutPage = (req, res) => {
      res.send("<h1>Welcome to employee about page</h1>");
 };
+const designationPage = (req, res) => {
+     res.send("<h1>Welcome to employee designation page</h1>");
+};
+const departmentPage = (req, res) => {
+     res.send("<h1>Welcome to employee department page</h1>");
+};
 const salaryPage = (req, res) => {
      res.send("<h1>Welcome to employee salary page</h1>");
 };
-module.exports = { homePage, aboutPage,salaryPage };
+module.exports = { homePage, aboutPage,departmentPage,designationPage,salaryPage };
