@@ -1,19 +1,19 @@
 const homePage=(req,res)=>{
-    res.send("<h1>Welcome to home page</h1>")
+    res.render("home")
 }
 const aboutPage=(req,res)=>{
-    res.send("<h1>Welcome to about page</h1>")
+    res.render("about")
 }
 const subjectPage=(req,res)=>{
-    res.send("<h1>Welcome to subject page</h1>")
+    res.render("subject")
 }
 const coursePage=(req,res)=>{
-    res.send("<h1>Welcome to course page</h1>")
+    res.render("course")
 }
 const contactPage=(req,res)=>{
-    res.send("<h1>Welcome to contact page</h1>")
+    res.render("contact")
 }
 const feesPage=(req,res)=>{
-    res.send("<h1>Welcome to fees page</h1>")
+    res.render("fees")
 }
 module.exports={homePage,aboutPage,subjectPage,contactPage,coursePage,feesPage};
