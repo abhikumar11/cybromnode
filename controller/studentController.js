@@ -1,3 +1,4 @@
+const StuModel=require("../models/studentModel");
 const homePage=(req,res)=>{
     res.render("home")
 }

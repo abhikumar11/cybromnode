@@ -1,12 +1,15 @@
-const express=require("express");
-const app=express();
-const stuRoute=require("./routes/studentRoute");
-const employeeRoute=require("./routes/employeeRoute");
+const express = require("express");
+const app = express();
+const stuRoute = require("./routes/studentRoute");
+const employeeRoute = require("./routes/employeeRoute");
+const mongoose = require("mongoose");
 
-app.set("view engine","ejs");
+mongoose.connect("mongodb://127.0.0.1:27017/cybromnode").then(() => console.log("connected to db"));
 
-app.use("/students",stuRoute);
-app.use("/employees",employeeRoute);
-app.listen(3001,()=>{
+app.set("view engine", "ejs");
+
+app.use("/students", stuRoute);
+app.use("/employees", employeeRoute);
+app.listen(3001, () => {
      console.log("server running on 3001");
-})
+});
