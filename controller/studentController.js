@@ -1,4 +1,8 @@
 const StuModel=require("../models/studentModel");
+
+const createStudent=(req,res)=>{
+
+}
 const homePage=(req,res)=>{
     res.render("home")
 }
@@ -17,4 +21,4 @@ const contactPage=(req,res)=>{
 const feesPage=(req,res)=>{
     res.render("fees")
 }
-module.exports={homePage,aboutPage,subjectPage,contactPage,coursePage,feesPage};
+module.exports={homePage,aboutPage,subjectPage,contactPage,coursePage,feesPage,createStudent};

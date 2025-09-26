@@ -8,6 +8,7 @@ router.get("/subject",studentController.subjectPage);
 router.get("/course",studentController.coursePage);
 router.get("/contact",studentController.contactPage);
 router.get("/fees",studentController.feesPage);
+router.post("/createstudent",studentController.createStudent);
 
 module.exports=router;
 
