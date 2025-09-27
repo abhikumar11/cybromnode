@@ -22,5 +22,4 @@ const contactPage = (req, res) => {
 const feesPage = (req, res) => {
      res.render("fees");
 };
-module.exports = {homePage,aboutPage,subjectPage,contactPage,coursePage,feesPage,createStudent,
-};
+module.exports = {homePage,aboutPage,subjectPage,contactPage,coursePage,feesPage,createStudent};
