@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body bgcolor="yellow">
     <a href="/students/home">Home</a>
     <a href="/students/about">About</a>
@@ -14,5 +16,13 @@
     <a href="/students/fees">Fees</a>
     <hr>
     <h1>Welcome to about page</h1>
+    <form action="/students/createstudent" method="post">
+        Rollno <input type="text" name="rollno" /><br />
+        Name <input type="text" name="name" /><br />
+        City <input type="text" name="city" /><br />
+        Fees <input type="text" name="fees" /><br />
+        <input type="submit" value="Save" />
+    </form>
 </body>
+
 </html>
