@@ -1,8 +1,15 @@
 const Student = require("../models/studentModel");
 
 const createStudent = (req, res) => {
-     console.log(req.body);
-     res.send("<h1>Data Saved</h1>");
+     const {rollno,name,city,fees}=req.body;
+     const newStudent=new Student({
+          rollno:rollno,
+          name:name,
+          city:city,
+          fees:fees
+     })
+      newStudent.save();
+     res.redirect("/students/about");
 };
 const homePage = (req, res) => {
      res.render("home");
