@@ -9,5 +9,5 @@ router.get("/search", studentController.coursePage);
 router.get("/update", studentController.contactPage);
 router.get("/contact", studentController.feesPage);
 router.post("/createstudent", studentController.createStudent);
-
+router.post("/searchdata",studentController.fetchDataByRoll);
 module.exports = router;

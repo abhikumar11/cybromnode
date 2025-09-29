@@ -20,7 +20,7 @@ const subjectPage = (req, res) => {
      res.render("subject");
 };
 const coursePage = (req, res) => {
-     res.render("course");
+     res.render("course",{data:[]});
 };
 const contactPage = (req, res) => {
      res.render("contact");
@@ -33,4 +33,9 @@ const fetchData=async(req,res)=>{
   
      res.render("subject",{data:stu});
 }
-module.exports = {homePage,aboutPage,fetchData,contactPage,coursePage,feesPage,createStudent};
+const fetchDataByRoll=async(req,res)=>{
+          const {rollno}=req.body;
+          const stu=await Student.find({rollno:rollno});
+          res.render("course",{data:stu});
+}
+module.exports = {homePage,aboutPage,fetchData,contactPage,coursePage,feesPage,createStudent,fetchDataByRoll};
