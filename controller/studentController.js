@@ -2,14 +2,13 @@ const Student = require("../models/studentModel");
 
 const createStudent = (req, res) => {
      const {rollno,name,city,fees}=req.body;
-     const newStudent=new Student({
+      Student({
           rollno:rollno,
           name:name,
           city:city,
           fees:fees
      })
-      newStudent.save();
-     res.redirect("/students/about");
+     res.render("about");
 };
 const homePage = (req, res) => {
      res.render("home");
@@ -29,4 +28,9 @@ const contactPage = (req, res) => {
 const feesPage = (req, res) => {
      res.render("fees");
 };
-module.exports = {homePage,aboutPage,subjectPage,contactPage,coursePage,feesPage,createStudent};
+const fetchData=async(req,res)=>{
+     const stu=await Student.find();
+  
+     res.render("subject",{data:stu});
+}
+module.exports = {homePage,aboutPage,fetchData,contactPage,coursePage,feesPage,createStudent};
