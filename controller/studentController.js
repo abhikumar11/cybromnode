@@ -1,14 +1,16 @@
 const Student = require("../models/studentModel");
 
-const createStudent = (req, res) => {
+const createStudent = async(req, res) => {
      const { rollno, name, city, fees } = req.body;
-     Student({
+     console.log(req.body);
+     const stu=new Student({
           rollno: rollno,
           name: name,
           city: city,
           fees: fees,
      });
-     res.render("about");
+     await stu.save();
+     res.render("insert");
 };
 const homePage = (req, res) => {
      res.render("home");
