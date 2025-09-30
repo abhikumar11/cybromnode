@@ -21,15 +21,19 @@ const insertPage = (req, res) => {
 const searchPage = (req, res) => {
      res.render("search", { data: [] });
 };
-const updatePage = (req, res) => {
-     res.render("update");
+const updatePage = async(req, res) => {
+     const stu = await Student.find();
+     res.render("update", { data: stu });
 };
 const contactPage = (req, res) => {
      res.render("contact");
 };
+const editPage=(req,res)=>{
+     console.log(req.query);
+     res.render("edit");
+}
 const fetchData = async (req, res) => {
      const stu = await Student.find();
-
      res.render("display", { data: stu });
 };
 const fetchDataByRoll = async (req, res) => {
@@ -46,4 +50,5 @@ module.exports = {
      updatePage,
      createStudent,
      fetchDataByRoll,
+     editPage
 };
