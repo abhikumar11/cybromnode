@@ -7,18 +7,18 @@ import Display from "./components/Display";
 import Update from "./components/Update";
 
 const App = () => {
-     return (
-          <div>
-               <Routes>
-                    <Route element={<Layout />}>
-                         <Route index path="/home" element={<Home />} />
-                         <Route path="insert" element={<Insert />} />
-                         <Route path="display" element={<Display />} />
-                         <Route path="update" element={<Update />} />
-                    </Route>
-               </Routes>
-          </div>
-     );
+  return (
+    <div>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index path="/home" element={<Home />} />
+          <Route path="insert" element={<Insert />} />
+          <Route path="display" element={<Display />} />
+          <Route path="update" element={<Update />} />
+        </Route>
+      </Routes>
+    </div>
+  );
 };
 
 export default App;
