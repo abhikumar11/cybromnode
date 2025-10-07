@@ -6,6 +6,7 @@ const stuRoute=require("./routes/StudentRoute");
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
+
 app.use("/student",stuRoute);
 mongoose.connect("mongodb://127.0.0.1:27017/cybromnode").then(() => console.log("connected to db"));
 

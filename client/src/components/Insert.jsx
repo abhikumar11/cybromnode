@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import axios from 'axios';
 const Insert = () => {
   const [frmData,setFrmData]=useState({});
 
@@ -7,9 +7,11 @@ const Insert = () => {
 
       setFrmData((prev)=>({...prev,[e.target.name]:e.target.value}));
   }
-  const handleSubmit=(e)=>{
+  const handleSubmit=async(e)=>{
     e.preventDefault();
-    console.log(frmData);
+    const res=await axios.post("http://localhost:3001/student/create",{frmData});
+
+    console.log(res);
   }
   return (
     <div>
