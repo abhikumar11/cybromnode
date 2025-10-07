@@ -1,6 +1,6 @@
 const mongoose= require("mongoose");
 
-const stuSchema=mongoose.Schema({
+const stuSchema=new mongoose.Schema({
     rollno:Number,
     name:String,
     city:String,
