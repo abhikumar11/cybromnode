@@ -7,6 +7,10 @@ const createStudent=async(req,res)=>{
     res.send("data saved succesfully");
     
 }
+const getAllData=async(req,res)=>{
+    const stu=await Student.find();
+    res.send(stu);
+}
 
 
 
@@ -15,4 +19,5 @@ const createStudent=async(req,res)=>{
 
 
 
-module.exports={createStudent};
+
+module.exports={createStudent,getAllData};
