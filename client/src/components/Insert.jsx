@@ -15,6 +15,7 @@ const Insert = () => {
   return (
     <div>
       <h1>Insert Student Data</h1>
+      <hr />
       <form onSubmit={handleSubmit}>
         Enter Roll No:<input type="text" name="rollno" onChange={handleInput}/>
         <br/>
