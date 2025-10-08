@@ -22,7 +22,6 @@ const Display = () => {
           <th>Name</th>
           <th>City</th>
           <th>Fees</th>
-          <th>Action</th>
         </tr>
         {
           student.map((item)=>(
@@ -31,10 +30,6 @@ const Display = () => {
               <td>{item.name}</td>
               <td>{item.city}</td>
               <td>{item.fees}</td>
-              <td>
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
             </tr>
           ))
         }

@@ -8,7 +8,7 @@ const createStudent=async(req,res)=>{
     
 }
 const getAllData=async(req,res)=>{
-    const stu=await Student.find();
+    const stu=await Student.find(); 
     res.send(stu);
 }
 
