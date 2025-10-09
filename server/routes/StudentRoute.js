@@ -4,6 +4,7 @@ const router=express.Router();
 
 router.post("/create",stucontroller.createStudent);
 router.get("/display",stucontroller.getAllData);
+router.post("/search",stucontroller.searchData);
 
 
 

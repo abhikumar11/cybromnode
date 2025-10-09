@@ -11,6 +11,11 @@ const getAllData=async(req,res)=>{
     const stu=await Student.find(); 
     res.send(stu);
 }
+const searchData=async(req,res)=>{
+    const {rollno}=req.body;
+    const stu=await Student.find({rollno:rollno}); 
+    res.send(stu);
+}
 
 
 
@@ -20,4 +25,4 @@ const getAllData=async(req,res)=>{
 
 
 
-module.exports={createStudent,getAllData};
+module.exports={createStudent,getAllData,searchData};
