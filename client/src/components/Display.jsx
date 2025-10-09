@@ -16,8 +16,8 @@ const Display = () => {
     <div>
       <h1>Student Data</h1>
       <hr />
-      <table border={"2px"}>
-        <tr>
+      <table border="2px" width="600" align="center">
+        <tr style={{backgroundColor:"grey"}}>
           <th>Roll No</th>
           <th>Name</th>
           <th>City</th>

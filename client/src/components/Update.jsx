@@ -2,7 +2,10 @@ import React from 'react'
 
 const Update = () => {
   return (
-    <div>Update</div>
+    <div>
+      <h1>Update Student Data</h1>
+      <hr />
+    </div>
   )
 }
 
