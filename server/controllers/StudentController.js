@@ -16,6 +16,11 @@ const searchData=async(req,res)=>{
     const stu=await Student.find({rollno:rollno}); 
     res.send(stu);
 }
+const deleteData=async(req,res)=>{
+    const {id}=req.params;
+    const stu=await Student.findByIdAndDelete(id);
+    res.send({msg:"Data deleted successfully"});
+}
 
 
 
@@ -24,5 +29,4 @@ const searchData=async(req,res)=>{
 
 
 
-
-module.exports={createStudent,getAllData,searchData};
+module.exports={createStudent,getAllData,searchData,deleteData};
