@@ -6,7 +6,8 @@ router.post("/create",stucontroller.createStudent);
 router.get("/display",stucontroller.getAllData);
 router.post("/search",stucontroller.searchData);
 router.get("/delete/:id",stucontroller.deleteData);
-
+router.get("/show/:id",stucontroller.getStudent);
+router.post("/updatestu",stucontroller.getStudent);
 
 
 module.exports=router;

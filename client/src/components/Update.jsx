@@ -2,14 +2,16 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+import {useNavigate} from "react-router-dom";
 const Update = () => {
-  const [student,setStudent]=useState([]);
+  const [students,setStudents]=useState([]);
+  
+  const navigate=useNavigate();
 
   const loadData=async()=>{
     const res=await axios.get("http://localhost:3001/student/display");
-    setStudent(res.data);
+    setStudents(res.data);
   }
-
   useEffect(()=>{
     loadData();
   })
@@ -17,6 +19,10 @@ const Update = () => {
       const stu=await axios.get(`http://localhost:3001/student/delete/${id}`);
        alert(stu.data.msg);
        loadData();
+  }
+  const handleEdit=async(id)=>{
+        navigate(`/edit/${id}`);
+       
   }
 
   return (
@@ -32,14 +38,14 @@ const Update = () => {
           <th>Action</th>
         </tr>
         {
-          student.map((item)=>(
+          students.map((item)=>(
             <tr>
               <td>{item.rollno}</td>
               <td>{item.name}</td>
               <td>{item.city}</td>
               <td>{item.fees}</td>
               <td>
-                <button>Edit</button>
+                <button onClick={()=>handleEdit(item._id)}>Edit</button>
                <button onClick={()=>handleDelete(item._id)}>Delete</button>
                </td>
             </tr>

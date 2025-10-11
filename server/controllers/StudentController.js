@@ -21,6 +21,12 @@ const deleteData=async(req,res)=>{
     const stu=await Student.findByIdAndDelete(id);
     res.send({msg:"Data deleted successfully"});
 }
+const getStudent=async(req,res)=>{
+    const {id}=req.params;
+    const stu=await Student.findById(id);
+    res.send(stu);
+    
+}
 
 
 
@@ -28,5 +34,4 @@ const deleteData=async(req,res)=>{
 
 
 
-
-module.exports={createStudent,getAllData,searchData,deleteData};
+module.exports={createStudent,getAllData,searchData,deleteData,getStudent};
