@@ -27,6 +27,11 @@ const getStudent=async(req,res)=>{
     res.send(stu);
     
 }
+const updateStudent=async(req,res)=>{
+    const {_id,rollno,name,city,fees}=req.body;
+    const stu=await Student.findByIdAndUpdate(_id,{rollno,name,city,fees});
+    res.send({msg:"Data updated successfully"});
+}
 
 
 
@@ -34,4 +39,4 @@ const getStudent=async(req,res)=>{
 
 
 
-module.exports={createStudent,getAllData,searchData,deleteData,getStudent};
+module.exports={createStudent,getAllData,searchData,deleteData,getStudent,updateStudent};

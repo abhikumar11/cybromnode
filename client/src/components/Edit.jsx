@@ -18,7 +18,9 @@ const Edit = () => {
         setStudent((prev)=>({...prev,[e.target.name]:e.target.value}))
     }
     const handleUpdate=async()=>{
-            const stu=await axios.post("",student);
+      const stu=await axios.post("http://localhost:3001/student/updatestu",student);
+      alert(stu.data.msg);
+           
     }
   return (
     <div>
