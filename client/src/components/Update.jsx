@@ -9,7 +9,7 @@ const Update = () => {
   const navigate=useNavigate();
 
   const loadData=async()=>{
-    const res=await axios.get("http://localhost:3001/student/display");
+    const res=await axios.get(`${import.meta.env.VITE_SERVER}/student/display`);
     setStudents(res.data);
   }
   useEffect(()=>{
