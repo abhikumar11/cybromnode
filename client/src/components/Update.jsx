@@ -16,7 +16,7 @@ const Update = () => {
     loadData();
   })
   const handleDelete=async(id)=>{
-      const stu=await axios.get(`http://localhost:3001/student/delete/${id}`);
+      const stu=await axios.get(`${import.meta.env.VITE_SERVER}/student/delete/${id}`);
        alert(stu.data.msg);
        loadData();
   }

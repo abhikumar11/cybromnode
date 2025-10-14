@@ -6,7 +6,7 @@ const Search = () => {
     const [student,setStudent]=useState([]);
 
     const handleSubmit=async()=>{
-            const stu=await axios.post("http://localhost:3001/student/search",{rollno});
+            const stu=await axios.post(`${import.meta.env.VITE_SERVER}/student/search`,{rollno});
             setStudent(stu.data);
     }
     return (

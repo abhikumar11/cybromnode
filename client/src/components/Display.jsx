@@ -4,7 +4,7 @@ const Display = () => {
   const [student,setStudent]=useState([]);
 
   const loadData=async()=>{
-    const res=await axios.get("http://localhost:3001/student/display");
+    const res=await axios.get(`${import.meta.env.VITE_SERVER}/student/display`);
     setStudent(res.data);
   }
 

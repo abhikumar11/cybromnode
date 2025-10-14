@@ -9,7 +9,7 @@ const Insert = () => {
   }
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    const res=await axios.post("http://localhost:3001/student/create",frmData);
+    const res=await axios.post(`${import.meta.env.VITE_SERVER}/student/create`,frmData);
     alert(res.data);
   }
   return (

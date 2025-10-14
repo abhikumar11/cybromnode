@@ -6,7 +6,7 @@ const Edit = () => {
     const {id}=useParams();
 
     const loadData=async()=>{
-         const stu=await axios.get(`http://localhost:3001/student/show/${id}`);
+         const stu=await axios.get(`${import.meta.env.VITE_SERVER}/student/show/${id}`);
         setStudent(stu.data);
     }
 
