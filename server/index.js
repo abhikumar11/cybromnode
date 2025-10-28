@@ -11,14 +11,13 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cors());
 //app.use("/student",stuRoute);
 
-app.use((req,res,next)=>{
-    console.log("First app level middleware");
-
-    next();
-})
 app.get("/home",(req,res)=>{
-    console.log("Home page");
-    res.send("Welcome to home page")
+   try {
+    throw new Error("Synchronous Error")
+   } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+   }
 })
 app.get("/about",(req,res)=>{
     console.log("Route level middleware");
@@ -31,9 +30,7 @@ app.get("/service",(req,res,next)=>{
 res.send("Welcome to service page")
 next();
 })
-app.use((req,res,next)=>{
-    console.log("last level middleware")
-})
+
 mongoose.connect(process.env.DBCONN).then(() => console.log("connected to db"));
 
 
