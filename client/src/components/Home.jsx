@@ -11,12 +11,22 @@ const Home = () => {
     
   }
     const handleAbout=async()=>{
-    const res=await axios.get(`${import.meta.env.VITE_SERVER}/about`);
+      try {
+        const res=await axios.get(`${import.meta.env.VITE_SERVER}/about`);
     console.log(res.data);
+      } catch (error) {
+        alert(error.response.data);
+      }
+    
   }
     const handleService=async()=>{
-    const res=await axios.get(`${import.meta.env.VITE_SERVER}/service`);
+      try {
+        const res=await axios.get(`${import.meta.env.VITE_SERVER}/service`);
     console.log(res.data);
+      } catch (error) {
+         alert(error.response.data);
+      }
+    
   }
 
   return (

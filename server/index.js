@@ -5,6 +5,7 @@ require("dotenv").config();
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const stuRoute=require("./routes/StudentRoute");
+const errorHandler = require("./middlewares/erroHandler");
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
@@ -12,24 +13,17 @@ app.use(cors());
 //app.use("/student",stuRoute);
 
 app.get("/home",(req,res)=>{
-   try {
-    throw new Error("Synchronous Error")
-   } catch (error) {
-        console.error(error);
-        res.status(500).send("Internal Server Error");
-   }
+   res.status(200).send("Welcome to home page");
 })
-app.get("/about",(req,res)=>{
-    console.log("Route level middleware");
-    res.send("Welcome to about page")
+app.get("/about",(req,res,next)=>{
+  throw new Error("Something went wrong in about");
+  next();
 })
 app.get("/service",(req,res,next)=>{
-    console.log("Service page middleware");
+    throw new Error("Something went wrong in service");
     next();
-},(req,res,next)=>{
-res.send("Welcome to service page")
-next();
 })
+app.use(errorHandler)
 
 mongoose.connect(process.env.DBCONN).then(() => console.log("connected to db"));
 
