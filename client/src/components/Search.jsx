@@ -1,43 +1,54 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
+
 const Search = () => {
-    const [rollno,setRollNo]=useState("");
-    const [student,setStudent]=useState([]);
+  const [books, setBooks] = useState([]);
 
-    const handleSubmit=async()=>{
-            const stu=await axios.post(`${import.meta.env.VITE_SERVER}/student/search`,{rollno});
-            setStudent(stu.data);
+  const loadData = async () => {
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/students/showbook`);
+      console.log(res.data);
+      setBooks(Array.isArray(res.data) ? res.data : []);
+    } catch (err) {
+      console.error(err);
+      setBooks([]);
     }
-    return (
-        <div>
-            <h1>Search Student Data</h1>
-            <hr />
-            Enter Roll No <input type="text" name="rollno" onChange={(e)=>setRollNo(e.target.value)}/>
-            <button onClick={handleSubmit}>Search</button>
-            <hr />
+  };
 
-            <table border="2px" width="600" align="center">
-        <tr style={{backgroundColor:"grey"}}>
-          <th>Roll No</th>
-          <th>Name</th>
-          <th>City</th>
-          <th>Fees</th>
-        </tr>
-        {
-          student.map((item)=>(
-            <tr>
-              <td>{item.rollno}</td>
-              <td>{item.name}</td>
-              <td>{item.city}</td>
-              <td>{item.fees}</td>
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  return (
+    <div>
+      <h1>Search Student Data</h1>
+      <hr />
+
+      <table border="2px" width="600" align="center">
+        <thead>
+          <tr style={{ backgroundColor: "grey" }}>
+            <th>Book Name</th>
+            <th>Price</th>
+            <th>Author Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {books.map((item) => (
+            <tr key={item._id}>
+              <td>{item?.bookname}</td>
+              <td>{item?.price}</td>
+              <td>{item?.authorid?.authorname}</td>
+              <td>{item?.authorid?.email}</td>
             </tr>
-          ))
-        }
-        </table>
-        <hr />
-        </div>
-    )
-}
+          ))}
+        </tbody>
+      </table>
 
-export default Search
+      <hr />
+    </div>
+  );
+};
+
+export default Search;

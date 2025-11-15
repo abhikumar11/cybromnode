@@ -9,23 +9,24 @@ const Insert = () => {
   }
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    const res=await axios.post(`${import.meta.env.VITE_SERVER}/student/create`,frmData);
+    const res=await axios.post(`${import.meta.env.VITE_SERVER}/student/createauthor`,frmData);
     alert(res.data);
   }
   return (
     <div>
       <h1>Insert Student Data</h1>
       <hr />
-      <form onSubmit={handleSubmit}>
-        Enter Roll No:<input type="text" name="rollno" onChange={handleInput}/>
-        <br/>
+      <form>
+        
         Enter Name:<input type="text" name="name" onChange={handleInput}/>
         <br/>
-        Enter City:<input type="text" name="city" onChange={handleInput}/>
+        Enter Email:<input type="email" name="email" onChange={handleInput}/>
         <br/>
-        Enter Fees:<input type="text" name="fees" onChange={handleInput}/>
+        Enter Book:<input type="text" name="bookname" onChange={handleInput}/>
         <br/>
-        <button type="submit">Save</button>
+        Enter Price:<input type="text" name="bookprice" onChange={handleInput}/>
+        <br/>
+        <button onClick={handleSubmit}>Save</button>
       </form>
     </div>
   )
