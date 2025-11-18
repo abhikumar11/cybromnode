@@ -1,44 +1,11 @@
-import React from "react";
-import axios from "axios";
-const Home = () => {
-  const handleSubmit=async()=>{
-    try {
-      const res=await axios.get(`${import.meta.env.VITE_SERVER}/home`);
-      console.log(res.data);
-    } catch (error) {
-      alert(error.response.data)
-    }
-    
-  }
-    const handleAbout=async()=>{
-      try {
-        const res=await axios.get(`${import.meta.env.VITE_SERVER}/about`);
-    console.log(res.data);
-      } catch (error) {
-        alert(error.response.data);
-      }
-    
-  }
-    const handleService=async()=>{
-      try {
-        const res=await axios.get(`${import.meta.env.VITE_SERVER}/service`);
-    console.log(res.data);
-      } catch (error) {
-         alert(error.response.data);
-      }
-    
-  }
+import React from 'react'
 
+const Home = () => {
   return (
     <div>
-      <h1>Welcome to Home Page</h1>
-      <button onClick={handleSubmit}>Home page</button>
-      <button onClick={handleAbout}>About page</button>
-      <button onClick={handleService}>Service page</button>
-          <br /><br />
-      <hr />
+      <h1>Welcome to home page</h1>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

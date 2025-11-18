@@ -1,13 +1,10 @@
 const express=require("express");
 const stucontroller = require("../controllers/StudentController");
+const verifyToken = require("../middlewares/authMiddle");
 const router=express.Router();
 
-router.post("/create",stucontroller.createStudent);
-router.get("/display",stucontroller.getAllData);
-router.get("/delete/:id",stucontroller.deleteData);
-router.get("/show/:id",stucontroller.getStudent);
-router.post("/updatestu",stucontroller.updateStudent);
-router.post("/createauthor",stucontroller.createAuthor);
-router.post("/createbook",stucontroller.createBook);
-router.get("/showbook",stucontroller.showBook);
+router.post("/login",stucontroller.userLogin);
+router.post("/registration",stucontroller.userReg);
+router.get("/display",verifyToken,stucontroller.display)
+
 module.exports=router;
