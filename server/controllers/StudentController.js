@@ -1,6 +1,21 @@
 const UserModel = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 const jwt=require("jsonwebtoken");
+const multer = require('multer');
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../cloudinary");
+const StudentModel=require("../models/StudentModel");
+
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: "student_images",
+        format: async (req, file) => 'jpg',
+        public_id: (req, file) => Date.now() + '-' + file.originalname,
+    },
+});
+
+const upload = multer({ storage: storage }).array('images', 10);
 
 const userLogin = async (req, res) => {
      const {email,password}=req.body;
@@ -41,4 +56,26 @@ const userReg = async (req, res) => {
 const display=(req,res)=>{
      res.status(200).send("Welcome to display page");
 }
-module.exports = {userLogin,userReg,display};
+ const createStudent=(req,res)=>{
+    upload(req, res, async (err) => {
+        if (err) {
+            return res.status(500).send("Error uploading files: " + err.message);
+        }
+
+        const { name, email, subject } = req.body;
+        const imageUrls = req.files.map(file => file.path);
+
+
+        const student = await StudentModel.create({
+            name: name,
+            email: email,
+            subject: subject,
+            images: imageUrls,
+            defaultImage: imageUrls[0]
+        })
+    });
+
+    res.send("Data save!");
+    
+ }
+module.exports = {userLogin,userReg,display,createStudent};
